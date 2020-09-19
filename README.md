@@ -1,6 +1,7 @@
 # AWS CDK Copy and Paste Examples
 
 Finding out how some properties of CDK components work are a pain in the ....
+
 Take the EBS volume config for an EC2 instance:
 ```
 blockDevices: [{
