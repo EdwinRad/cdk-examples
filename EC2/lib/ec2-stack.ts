@@ -6,7 +6,6 @@ import * as iam from '@aws-cdk/aws-iam';
 // This template does not work out of the box due to overlapping configurations 
 
 
-
 export class Ec2Stack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
@@ -69,7 +68,7 @@ export class Ec2Stack extends cdk.Stack {
         volume: ec2.BlockDeviceVolume.ebs(20, {
           deleteOnTermination: true,
           encrypted: true,
-          volumeType: ec2.EbsDeviceVolumeType.GENERAL_PURPOSE_SSD,
+          volumeType: ec2.EbsDeviceVolumeType.GP2,
         }),
       }],
       instanceName: 'ec2Instance',
