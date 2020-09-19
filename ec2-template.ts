@@ -11,7 +11,7 @@ export class Ec2Stack extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
 
-        // VPC configuration new
+// VPC configuration new
         const vpc = new ec2.Vpc(this, 'Vpc', {
             natGateways: 0,
             cidr: '10.0.0.0/16',
@@ -32,15 +32,15 @@ export class Ec2Stack extends cdk.Stack {
             ]
         });
 
-        // SecurityGroup new and imported
+// SecurityGroup new and imported
         // const securityGroup = SecurityGroup.fromSecurityGroupId(this, 'SG', 'sg-12345', {
         //   mutable: false
         // });
         const securityGroup = new ec2.SecurityGroup(this, 'sg', {
             vpc: vpc
         })
-
-        // // userData example Windows
+// User Data
+        // userData example Windows
         //     const userData = ec2.UserData.forWindows();
         //     userData.addCommands('command1', 'command2');
 
@@ -48,12 +48,12 @@ export class Ec2Stack extends cdk.Stack {
         const userDataLinux = ec2.UserData.forLinux();
         userDataLinux.addCommands('sudo yum install -y httpd');
 
-        // // IAM role
+// IAM role
         const ec2Role = new iam.Role(this, 'EC2Role', {
             assumedBy: new iam.ServicePrincipal('ec2.amazonaws.com')
         });
 
-        // EC2 Instance
+// EC2 Instance
         const ec2Instance = new ec2.Instance(this, 'ec2Instance', {
             instanceType: ec2.InstanceType.of(ec2.InstanceClass.T3, ec2.InstanceSize.MICRO),
             machineImage: new ec2.AmazonLinuxImage(),
