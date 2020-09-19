@@ -1,6 +1,6 @@
 # AWS CDK Copy and Paste Examples
 
-Figuring out how some properties of CDK components work are a pain in the ass.
+Finding out how some properties of CDK components work are a pain in the ....
 Take the EBS volume config for an EC2 instance:
 ```
 blockDevices: [{
@@ -13,10 +13,11 @@ blockDevices: [{
                 }),
             }],
 ```
-It takes me personally ages to find out how all of this object is constructed.
+It takes me ages to figure out how all of this object is constructed.
 This repo contains simple configuration examples of AWS CDK components to help you work faster.
 
-They are not meant as stand alone run out of the box but more a reference to figure out how the config works.
+They are not meant as stand alone run out of the box solutions, but more of a reference to see how the props work.
+
 The templates don't necessarily follow best practices.
 
 
